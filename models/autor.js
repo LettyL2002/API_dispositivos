@@ -1,21 +1,34 @@
-const express = require("express");
-const app = express();
-const port = 2002;
+import data from "../data/data.js";
+const { autores } = data;
 
-// Arreglo de objetos para representar a los autores
-const autores = [
-  { autor: "Maurice Sendak", nacionalidad: "Estadounidense" },
-  { autor: "Antoine de Saint-Exupéry", nacionalidad: "Francés" },
-  { autor: "Roald Dahl", nacionalidad: "Británico" },
-  { autor: "Juan Ramón Jiménez", nacionalidad: "Español" },
-  { autor: "Horacio Quiroga", nacionalidad: "Uruguayo" },
-];
+class Autor {
+  constructor(nombre, nacionalidad, nacimiento) {
+    this.nombre = nombre;
+    this.nacionalidad = nacionalidad;
+    this.nacimiento = nacimiento;
+  }
 
-// Endpoint para obtener todos los autores
-app.get("/autores", (req, res) => {
-  res.json(autores);
-});
+  getNombre() {
+    return this.nombre;
+  }
 
-app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
-});
+  getNacionalidad() {
+    return this.nacionalidad;
+  }
+
+  getNacimiento() {
+    return this.nacimiento;
+  }
+
+  static getAllAutores() {
+    return autores;
+  }
+
+  static findByNombre(nombre) {
+    return autores.find(
+      (autor) => autor.nombre.toLowerCase() === nombre.toLowerCase()
+    );
+  }
+}
+
+export default Autor;

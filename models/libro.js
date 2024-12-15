@@ -1,21 +1,42 @@
-const express = require("express");
-const app = express();
-const port = 2002;
+import data from "../data/data.js";
+const { libros } = data;
 
-// Arreglo de objetos para representar los libros
-const libros = [
-  { título: "Donde viven los monstruos", añoEdición: 1963 },
-  { título: "El principito", añoEdición: 1943 },
-  { título: "Matilda", añoEdición: 1988 },
-  { título: "Platero y yo", añoEdición: 1914 },
-  { título: "Charlie y la fábrica de chocolate", añoEdición: 1964 },
-];
+class Libro {
+  constructor(título, añoEdición, disponible = true) {
+    this.título = título;
+    this.añoEdición = añoEdición;
+    this.disponible = disponible;
+  }
 
-// Endpoint para obtener todos los libros
-app.get("/libros", (req, res) => {
-  res.json(libros);
-});
+  getTítulo() {
+    return this.título;
+  }
 
-app.listen(port, () => {
-  console.log(`Servidor escuchando en el puerto ${port}`);
-});
+  getAñoEdición() {
+    return this.añoEdición;
+  }
+
+  getDisponible() {
+    return this.disponible;
+  }
+
+  static getAllLibros() {
+    return libros;
+  }
+
+  static getLibrosDisponibles() {
+    return libros.filter((libro) => libro.disponible);
+  }
+
+  static getLibrosNoDisponibles() {
+    return libros.filter((libro) => !libro.disponible);
+  }
+
+  static findByTitulo(titulo) {
+    return libros.find(
+      (libro) => libro.título.toLowerCase() === titulo.toLowerCase()
+    );
+  }
+}
+
+export default Libro;
