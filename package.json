@@ -4,8 +4,8 @@
   "description": "Aplicación Node.js para gestionar una biblioteca",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index_local.js",
+    "dev": "nodemon index_local.js"
   },
   "author": "Leticia Encarnacion Lopez <leticiaencarnacionlopez2002@gmail.com>",
   "license": "MIT",

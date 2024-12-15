@@ -1,4 +1,4 @@
 {
   "cSpell.words": ["Encarnacion", "Inicialización", "nodisponibles"],
-  "conventionalCommits.scopes": ["API"]
+  "conventionalCommits.scopes": ["API", "Deployment"]
 }
