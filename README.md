@@ -22,8 +22,8 @@ Sistema de gestión para biblioteca
 
 ## 🔍 Detalles Técnicos
 
-- Puerto: 3000
-- Base URL: `http://localhost:3000`
+- Puerto: 7100
+- Base URL: `http://localhost:7100`
 
 ## 📋 Respuestas
 
